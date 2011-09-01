@@ -3,6 +3,7 @@
 #include "socket.h"
 #include "transmission.h"
 #include "divers.h"
+#include "structures.h"
 
 int main (int argc, char *argv[]){
 	char ok = 0;
