@@ -38,3 +38,8 @@ void transmission(SOCKET csock, SOCKET csock2){
 		send(csock, &fin, sizeof(char), 0);
 	} while (test_fin == 1024);
 }
+
+
+void dtransmission(SOCKET csock, SOCKET csock2){
+    int temp_taille_chaine;
+}
