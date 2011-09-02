@@ -27,10 +27,10 @@ void pause(){												// Fonction de pause portable
 #endif
 }
 
-void stop(const char a_afficher[], short int code_exit){	// Fonction d'arrêt d'urgence du programme
+void stop(const char a_afficher[], short int code_exit){	// Fonction d'arrï¿½t d'urgence du programme
 	if (*a_afficher != 0){
 		printf("%s\n", a_afficher);							// Affichage de l'erreur
 		pause();
-		exit(code_exit);									// Arrêt du programme
+		exit(code_exit);									// Arret du programme
 	}
 }
