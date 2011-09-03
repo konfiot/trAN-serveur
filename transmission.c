@@ -13,13 +13,20 @@ void transmission(SOCKET csock, SOCKET csock2){
 	puts("in transmission");
 	if (recv(csock, (char*)&temp_taille_nom, sizeof(int), 0) == SOCKET_ERROR)
 		printf("temp_taille_nom error");
+<<<<<<< HEAD
         
+=======
+>>>>>>> 1fc770a1eac4e7e53090130a03766981e2037c4a
 	taille_nom = ntohl(temp_taille_nom);
 	printf("taile_nom : %d\n", taille_nom);
 	nom_fichier = malloc(taille_nom);
 	if (recv(csock, nom_fichier, taille_nom * sizeof(char), 0) == SOCKET_ERROR)
+<<<<<<< HEAD
                 printf("temp_taille_nom error");
         
+=======
+		printf("temp_taille_nom error");
+>>>>>>> 1fc770a1eac4e7e53090130a03766981e2037c4a
 	printf("nom : %s\n", nom_fichier);
 
 	send(csock2, (char*)&temp_taille_nom, sizeof(int), 0);
@@ -29,6 +36,7 @@ void transmission(SOCKET csock, SOCKET csock2){
 	send(csock, &fin, sizeof(char), 0);
 
 	do {
+<<<<<<< HEAD
                 recv(csock, (char*)&temp_test_fin, sizeof(int), 0);
                 recv(csock, (char*)buffer, 1024, 0);
 		test_fin = ntohl(temp_test_fin);
@@ -37,12 +45,23 @@ void transmission(SOCKET csock, SOCKET csock2){
                 send(csock2, (char*)buffer, 1024, 0);
        
                 recv(csock2, &fin, sizeof(char), 0);
+=======
+		recv(csock, (char*)&temp_test_fin, sizeof(int), 0);
+		recv(csock, (char*)buffer, 1024, 0);
+		test_fin = ntohl(temp_test_fin);
+
+		send(csock2, (char*)&temp_test_fin, sizeof(int), 0);
+		send(csock2, (char*)buffer, 1024, 0);
+		
+		recv(csock2, &fin, sizeof(char), 0);
+>>>>>>> 1fc770a1eac4e7e53090130a03766981e2037c4a
 		send(csock, &fin, sizeof(char), 0);
 	} while (test_fin == 1024);
 }
 
 
 void dtransmission(SOCKET csock, SOCKET csock2){
+<<<<<<< HEAD
     int net_taille_chaine, nb_fichiers, net_nb_fichiers, taille_chaine, i;
     char *nom_fichier = NULL;
     
@@ -57,4 +76,7 @@ void dtransmission(SOCKET csock, SOCKET csock2){
         recv(csock, nom_fichier, taille_chaine, 0);
     }
 
+=======
+    int temp_taille_chaine;
+>>>>>>> 1fc770a1eac4e7e53090130a03766981e2037c4a
 }
