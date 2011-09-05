@@ -40,7 +40,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <stdio.h>
 #include <stdlib.h>
-#pragma comment(lib, "ws2_32.lib")
 
 
 int initSocket(SOCKET *sock, SOCKADDR_IN *sin, socklen_t taille, short int port, short int type_machine, char adresse_ip[]);	// Fonction d'initialisation de la transmission

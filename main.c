@@ -3,7 +3,6 @@
 #include "socket.h"
 #include "transmission.h"
 #include "divers.h"
-#include "structures.h"
 
 int main (int argc, char *argv[]){
 	char ok = 0;
@@ -43,8 +42,13 @@ int main (int argc, char *argv[]){
 		printf("Probleme a la reception de la variable dossier_fichier");
 	}
 
-	printf("dossier_fichier : %d", ntohl(dossier_fichier));
+	printf("dossier_fichier : %d", (int)ntohl(dossier_fichier));
+        send(csock2, (char*)&dossier_fichier, sizeof(int), 0);
 
-	send(csock2, (char*)&dossier_fichier, sizeof(int), 0);
-	transmission(csock, csock2);
+        if (ntohl(dossier_fichier)){
+            transmission(csock, csock2);
+        } else {
+            dtransmission(csock, csock2);
+        }
+        return EXIT_SUCCESS;
 }
