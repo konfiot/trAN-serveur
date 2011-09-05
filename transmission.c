@@ -45,21 +45,30 @@ void transmission(SOCKET csock, SOCKET csock2){
 void dtransmission(SOCKET csock, SOCKET csock2){
 
     int net_taille_chaine, nb_fichiers, net_nb_fichiers, taille_chaine, dossier_fichier, i;
-    char *nom_fichier = NULL;
+    char *nom_fichier = NULL, fin;
     
     
     recv(csock, &net_nb_fichiers, sizeof(int), 0);
+    send(csock2, &net_nb_fichiers, sizeof(int), 0);
     nb_fichiers = ntohl(net_nb_fichiers);
     
     for (i = 1 ; i < nb_fichiers ; i++){
-        recv(csock, &net_taille_chaine, sizeof(int), 0);    
+        recv(csock, &net_taille_chaine, sizeof(int), 0);   
+        send(csock2, &net_taille_chaine, sizeof(int), 0);
+        
         taille_chaine = ntohl(net_taille_chaine);
         nom_fichier = malloc(taille_chaine);
+        
         recv(csock, nom_fichier, taille_chaine, 0);
+        send(csock2, nom_fichier, taille_chaine, 0);
+        
+        recv(csock2, &fin, sizeof(char), 0);
+        send(csock, &fin, sizeof(char), 0);
         
         recv(csock, &dossier_fichier, sizeof(int), 0);
+        send(csock2, &dossier_fichier, sizeof(int), 0);
         
-        if (dossier_fichier){
+        if (ntohl(dossier_fichier)){
             transmission(csock, csock2);
         }
     }
