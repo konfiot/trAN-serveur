@@ -58,11 +58,11 @@ LDLIBSOPTIONS=-lws2_32
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/serveur.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tran-serveur.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/serveur.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tran-serveur.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/serveur ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tran-serveur ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/socket.o: socket.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -90,7 +90,7 @@ ${OBJECTDIR}/transmission.o: transmission.c
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/serveur.exe
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tran-serveur.exe
 
 # Subprojects
 .clean-subprojects:

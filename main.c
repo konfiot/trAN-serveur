@@ -50,5 +50,16 @@ int main (int argc, char *argv[]){
         } else {
             dtransmission(csock, csock2);
         }
+        
+        shutdown(csock, 2);
+        shutdown(csock2, 2);
+        
+        closesocket(csock);
+        closesocket(csock2);
+        
+#ifdef WIN32
+        WSACleanup();
+#endif
+        
         return EXIT_SUCCESS;
 }
