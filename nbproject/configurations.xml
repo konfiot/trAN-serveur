@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>divers.h</itemPath>
       <itemPath>socket.h</itemPath>
+      <itemPath>structures.h</itemPath>
       <itemPath>transmission.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
