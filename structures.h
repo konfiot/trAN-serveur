@@ -17,6 +17,7 @@ extern "C" {
 typedef struct {
     SOCKET csock;
     SOCKET csock2;
+    int dossier_fichier;
 } CoupleClients;
 
 #ifdef	__cplusplus

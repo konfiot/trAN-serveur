@@ -17,7 +17,7 @@ RANLIB=ranlib
 CC=gcc.exe
 CCC=g++.exe
 CXX=g++.exe
-FC=gfortran.exe
+FC=gfortran
 AS=as.exe
 
 # Macros
@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/socket.o \
+	${OBJECTDIR}/multithreading.o \
 	${OBJECTDIR}/divers.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/transmission.o
@@ -68,6 +69,11 @@ ${OBJECTDIR}/socket.o: socket.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/socket.o socket.c
+
+${OBJECTDIR}/multithreading.o: multithreading.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/multithreading.o multithreading.c
 
 ${OBJECTDIR}/divers.o: divers.c 
 	${MKDIR} -p ${OBJECTDIR}
